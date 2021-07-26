@@ -23,7 +23,13 @@ ssh_key    = "~/path/to/public/ssh/key.pub"
 # Design Decisions
 
 * Deployed public/private subnet pair in 2 regions for high availability.
-* Used `e2-medium` machine type for cost-optimation and to meet [RHEL system requirements](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_installation/system-requirements-reference_installing-rhel#check-disk-and-memory-requirements_system-requirements-reference)
+* Used `e2-medium` machine type for cost-optimation and to meet [RHEL system requirements](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_installation/system-requirements-reference_installing-rhel#check-disk-and-memory-requirements_system-requirements-reference).
+* Deployed Cloud Router and NAT so instances in the private subnet can connect to outside of the VPC.
+* Utilized Unmanaged Instance Group as there was only one VM to balance traffic across.
+* Deployed HTTP Load Balancer which utilizes IG as a backend with a health check at `/` on port `80`.
+* Configured Firewall Rule to target public instance for SSH traffic on port `22`.
+* Created variables and defaults in `variables.tf`
+* Created outputs for public IPs in `outputs.tf`
 
 # Resources Used
 
