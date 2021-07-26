@@ -28,8 +28,8 @@ ssh_key    = "~/path/to/public/ssh/key.pub"
 * Utilized Unmanaged Instance Group as there was only one VM to balance traffic across.
 * Deployed HTTP Load Balancer which utilizes IG as a backend with a health check at `/` on port `80`.
 * Configured Firewall Rule to target public instance for SSH traffic on port `22`.
-* Created variables and defaults in `variables.tf`
-* Created outputs for public IPs in `outputs.tf`
+* Created variables and defaults in `variables.tf`.
+* Created outputs for public IPs in `outputs.tf`.
 
 # Resources Used
 
@@ -40,7 +40,10 @@ ssh_key    = "~/path/to/public/ssh/key.pub"
 
 # To Do
 
-* Project & Folder structure for Shared VPC among host and service
+* Project & Folder structure for Shared VPC among host and service.
+    * Use `google_compute_shared_vpc_host_project` and `google_compute_shared_vpc_service_project` resources to share VPC.
+    * Need to setup Organization with Google Workspace or Cloud Identity.
+    * Configure IAM.
 
 # Known Issues
 
