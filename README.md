@@ -47,6 +47,21 @@ ssh_key    = "~/path/to/public/ssh/key.pub"
     * Need to setup Organization with Google Workspace or Cloud Identity.
     * Configure IAM.
 
-## Known Issues
+## Issues Encountered
 
-N/A
+### Backend Health Check Failing
+
+Found `failed_to_pick_backend` error in Cloud Logging. Discovered 403 HTTP status when accessing test page by running `curl http://localhost -v` on HTTP instance. Created `/var/www/html/index.html` to serve.
+
+```
+$ curl http://localhost -v
+* About to connect() to localhost port 80 (#0)
+*   Trying ::1...
+* Connected to localhost (::1) port 80 (#0)
+> GET / HTTP/1.1
+> User-Agent: curl/7.29.0
+> Host: localhost
+> Accept: */*
+> 
+< HTTP/1.1 403 Forbidden
+```
