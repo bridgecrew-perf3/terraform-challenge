@@ -1,5 +1,7 @@
 # Terraform Challenge
 
+![Alt text](/gcp-network-diagram.jpeg "GCP Network Diagram")
+
 # Prerequisites
 
 * Terraform CLI
