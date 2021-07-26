@@ -59,10 +59,6 @@ module "cloud_router" {
       source_subnetwork_ip_ranges_to_nat = "LIST_OF_SUBNETWORKS"
       subnetworks = [
         {
-          name                    = module.vpc.subnets["us-east1/${local.prefix}-subnet-1"].name
-          source_ip_ranges_to_nat = ["ALL_IP_RANGES"]
-        },
-        {
           name                    = module.vpc.subnets["us-east1/${local.prefix}-subnet-3"].name
           source_ip_ranges_to_nat = ["ALL_IP_RANGES"]
         }
